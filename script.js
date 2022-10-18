@@ -2,30 +2,38 @@
 function isNumber(num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
 }
+function randomNumber() {
+    return Math.round(Math.random() * 100);
+}
 
-function startGame(number) {
+function startGame(number, numAtt) {
+    number = randomNumber();
+    numAtt = 10;
     function game() {
         let answer = +prompt('Угадай число от 1 до 100');
-        if (isNumber(answer)) {
-            if (answer > number) {
+        switch (true) {
+            case !isNumber(answer):
+                alert('Введите число');
+                game();
+                break;
+            case answer === 0:
+                alert('Игра окончена');
+                break;
+            case answer > number:
                 alert('Загаданное число меньше');
                 game();
-            } else if (answer < number) {
+                break;
+            case answer < number:
                 alert('Загаданное число больше');
                 game();
-            } else if (answer === number) {
-                alert('Ура вы удагали');
-            }
-        } else if (answer === null) {
-
-            alert('Игра окончена');
-        } else if (!isNumber(answer)) {
-            alert('Введи число');
-            game();
+                break;
+            case answer === number:
+                alert('Ура вы угадали');
+                break;
         }
     }
 
     game();
 }
 
-startGame(23);
+startGame();
