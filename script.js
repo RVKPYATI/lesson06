@@ -1,3 +1,7 @@
+'use strict';
+
+let number = randomNumber();
+
 
 function isNumber(num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
@@ -6,9 +10,7 @@ function randomNumber() {
     return Math.round(Math.random() * 100);
 }
 
-function startGame(number, numAtt) {
-    number = randomNumber();
-    numAtt = 10;
+function startGame() {
     function game() {
         let answer = +prompt('Угадай число от 1 до 100');
         switch (true) {
@@ -27,7 +29,7 @@ function startGame(number, numAtt) {
                 alert('Загаданное число больше');
                 game();
                 break;
-            case answer === number:
+            default:
                 alert('Ура вы угадали');
                 break;
         }
