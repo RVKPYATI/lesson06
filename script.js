@@ -8,7 +8,7 @@ function randomNumber() {
 }
 
 function startGame() {
-    let number = randomNumber();
+    const number = randomNumber();
     function game() {
         let answer = prompt('Угадай число от 1 до 100');
         switch (true) {
