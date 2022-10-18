@@ -12,27 +12,26 @@ function randomNumber() {
 
 function startGame() {
     function game() {
-        let answer = +prompt('Угадай число от 1 до 100');
+        let answer = prompt('Угадай число от 1 до 100');
         switch (true) {
-            case !isNumber(answer):
+            case !isNumber(+answer):
                 alert('Введите число');
                 game();
                 break;
-            case answer === 0:
+            case answer === null:
                 alert('Игра окончена');
-                break;
+                return null;
             case answer > number:
                 alert('Загаданное число меньше');
-                game();
                 break;
             case answer < number:
                 alert('Загаданное число больше');
-                game();
                 break;
             default:
                 alert('Ура вы угадали');
-                break;
+                return number;
         }
+        return game();
     }
 
     game();
