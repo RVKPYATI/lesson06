@@ -1,8 +1,5 @@
 'use strict';
 
-let number = randomNumber();
-
-
 function isNumber(num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
 }
@@ -11,12 +8,12 @@ function randomNumber() {
 }
 
 function startGame() {
+    let number = randomNumber();
     function game() {
         let answer = prompt('Угадай число от 1 до 100');
         switch (true) {
             case !isNumber(+answer):
                 alert('Введите число');
-                game();
                 break;
             case answer === null:
                 alert('Игра окончена');
